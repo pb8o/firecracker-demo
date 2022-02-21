@@ -12,7 +12,7 @@ pull requests :)
 
 ## Step-by-Step Instructions
 
-Get this repo on an EC2 i3.metal instance.
+Get this repo on an EC2 Intel metal instance.
 Open two terminals/ssh-connections to the instance.
 
 ### Terminal window 1
@@ -37,7 +37,7 @@ EOL
 ```
 
 Note: In the above configuration, `ec2-user` is a
-placeholder for the ec2 instance logged in user.
+placeholder for the ec2 instance logged-in user.
 
 Reload the ssh session to have the new limit applied.
 
@@ -90,7 +90,7 @@ ifconfig fc-$ID-tap0 | grep "inet "
        inet 169.254.0.170  netmask 255.255.255.252  broadcast 0.0.0.0
 
 # IP of microVM on other side is *one less*
-ssh -i xenial.rootfs.id_rsa root@169.254.0.169
+ssh -i resources/rootfs.id_rsa root@169.254.0.169
 ```
 
 You're now inside the microVM. Do as you please.

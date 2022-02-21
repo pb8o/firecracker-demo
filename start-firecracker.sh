@@ -1,16 +1,16 @@
 #!/bin/bash -e
 SB_ID="${1:-0}" # Default to sb_id=0
 
-RO_DRIVE="$PWD/xenial.rootfs.ext4"
-
-KERNEL="$PWD/vmlinux"
+FC_BINARY="$PWD/resources/firecracker"
+RO_DRIVE="$PWD/resources/rootfs.ext4"
+KERNEL="$PWD/resources/vmlinux"
 TAP_DEV="fc-${SB_ID}-tap0"
 
 KERNEL_BOOT_ARGS="init=/sbin/boottime_init panic=1 pci=off reboot=k tsc=reliable quiet 8250.nr_uarts=0 ipv6.disable=1"
 #KERNEL_BOOT_ARGS="console=ttyS0 reboot=k panic=1 pci=off nomodules ipv6.disable=1"
 
 API_SOCKET="/tmp/firecracker-sb${SB_ID}.sock"
-CURL=(curl --silent --show-error --header Content-Type: application/json --unix-socket "${API_SOCKET}" --write-out "HTTP %{http_code}")
+CURL=(curl --silent --show-error --header "Content-Type: application/json" --unix-socket "${API_SOCKET}" --write-out "HTTP %{http_code}")
 
 curl_put() {
     local URL_PATH="$1"
@@ -53,8 +53,7 @@ KERNEL_BOOT_ARGS="${KERNEL_BOOT_ARGS} ip=${FC_IP}::${TAP_IP}:${MASK_LONG}::eth0:
 
 # Start Firecracker API server
 rm -f "$API_SOCKET"
-
-./firecracker --api-sock "$API_SOCKET" --id "${SB_ID}" --boot-timer &>/dev/null &
+"${FC_BINARY}" --api-sock "$API_SOCKET" --id "${SB_ID}" --boot-timer >> $logfile &
 
 sleep 0.015s
 

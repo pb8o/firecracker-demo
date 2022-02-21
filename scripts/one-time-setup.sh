@@ -8,3 +8,7 @@ sudo sysctl -w net.ipv4.conf.all.forwarding=1
 sudo sysctl -w net.ipv4.neigh.default.gc_thresh1=1024
 sudo sysctl -w net.ipv4.neigh.default.gc_thresh2=2048
 sudo sysctl -w net.ipv4.neigh.default.gc_thresh3=4096
+
+
+# Download relevant resources.
+./ensure_resources.sh
