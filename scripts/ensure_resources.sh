@@ -42,6 +42,7 @@ ensure_rootfs() {
     key_path="$TEST_RES/rootfs.id_rsa"
     wget -q "https://s3.amazonaws.com/$S3_BUCKET/img/alpine_demo/fsfiles/xenial.rootfs.ext4" -O "$file_path"
     wget -q "https://s3.amazonaws.com/$S3_BUCKET/img/alpine_demo/fsfiles/xenial.rootfs.id_rsa" -O "$key_path"
+    chmod 400 "$key_path"
     echo "Saved rootfs and ssh key at "${file_path}" and "${key_path}"..."
 }
 
