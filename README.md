@@ -43,11 +43,10 @@ Reload the ssh session to have the new limit applied.
 
 Install additional dependencies: `python3` and `iperf3`.
 
-Fix permissions on `/dev/kvm` and the ssh key:
+Fix permissions on `/dev/kvm`:
 
 ```bash
 sudo chmod 777 /dev/kvm
-chmod 400 xenial.rootfs.id_rsa
 ```
 
 Create 4000 TAPs, configure networking for them and start 4k `iperf3` servers
