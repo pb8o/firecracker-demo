@@ -85,7 +85,7 @@ Pick a number `0 <= ID < 4000`. For this example `42` was chosen.
 ```bash
 ID="42"
 # get the IP for that microVM
-ifconfig fc-$ID-tap0 | grep "inet "
+ip addr show fc-$ID-tap0 | grep "inet "
        inet 169.254.0.170  netmask 255.255.255.252  broadcast 0.0.0.0
 
 # IP of microVM on other side is *one less*
