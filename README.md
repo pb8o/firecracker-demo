@@ -30,7 +30,7 @@ will control the rest of the demo.
 Raise the maximum processes limit.
 
 ```bash
-sudo tee -a >> /etc/security/limits.conf <<EOL
+sudo tee -a /etc/security/limits.conf <<EOL
 $USER soft nproc 16384
 $USER hard nproc 16384
 EOL
