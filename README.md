@@ -3,7 +3,7 @@
 ## Disclaimer
 
 This demo showcases Firecracker's agility and high-density capabiliies.
-**It's been run on an EC2 I3.metal host (the defaults start 4000 microVMs)
+**It's been run on an EC2 i3.metal host (the defaults start 4000 microVMs)
 with an Ubuntu and an Amazon Linux 2 host OS, from an Ubuntu client.**
 
 Deviations from this setup will probably lead to issues and/or sub-par performance.
