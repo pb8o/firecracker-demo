@@ -31,13 +31,13 @@ Raise the maximum processes limit.
 
 ```bash
 sudo tee -a >> /etc/security/limits.conf <<EOL
-ec2-user soft nproc 16384
-ec2-user hard nproc 16384
+$USER soft nproc 16384
+$USER hard nproc 16384
 EOL
 ```
 
-Note: In the above configuration, `ec2-user` is a
-placeholder for the ec2 instance logged-in user.
+Note: In the above configuration, `$USER` expands
+to the ec2 instance logged-in user.
 
 Reload the ssh session to have the new limit applied.
 
